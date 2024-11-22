@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Menu</title>
+    <style>
+        /* General Styling */
+        body {
+            background-color: #222;
+            color: #ddd;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        button {
+            background-color: #444;
+            color: #ddd;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        .price {
+            font-size: 1.2em;
+            color: #ff9900;
+            margin-bottom: 10px;
+        }
+
+        /* Layout for Food Items */
+        .button-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        .button-item {
+            text-align: center;
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            height: 450px; /* Increased height for better image space */
+            overflow: hidden;
+            justify-content: space-between;
+        }
+
+        .food-details {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start; /* Align the name to the left */
+            flex-direction: column;
+            align-items: flex-start; /* Align content to the left */
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        /* Highlighted Food Name */
+        .food-name {
+            font-size: 1.2em; /* Increased size */
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #ffcc00; /* Yellow for high contrast */
+            background-color: rgba(0, 0, 0, 0.5); /* Dark background for better visibility */
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        /* Enlarge and fill the images */
+        .food-image {
+            width: 100%; /* Set to 100% width to fill the container */
+            height: 340px; /* Fixed height */
+            object-fit: cover; /* Ensures the image fills the container while maintaining aspect ratio */
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        /* Price and Select Button in one side */
+        .food-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            bottom: 10px; /* Align to bottom */
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .select-button {
+            background-color: #444;
+            color: #ddd;
+            padding: 10px;
+            margin-top: 10px;
+            width: 100px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .select-button.selected {
+            background-color: #28a745;
+        }
+
+        .select-button:hover {
+            background-color: #555;
+        }
+
+        /* Done Button */
+        .done-button {
+            background-color: #28a745;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            display: block;
+            margin: 40px auto;
+        }
+
+        .done-button:hover {
+            background-color: #218838;
+        }
+
+        /* Navigation Buttons */
+        .nav-buttons {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Buttons -->
+<div class="nav-buttons">
+    <button>←</button>
+    <button>MENU</button>
+</div>
+
+<!-- Button Container for Food Menu Items -->
+<div class="button-container">
+    <!-- Food Items -->
+    <div class="button-item">
+        <div class="food-details">
+            <div class="food-name">Panner Butter Masala</div>
+            <img src="https://i0.wp.com/www.nourishdeliciously.com/wp-content/uploads/2022/11/DSC_9207.jpg" alt="Panner Butter Masala" class="food-image">
+        </div>
+        <div class="food-info">
+            <span class="price">₹350</span>
+            <button class="select-button">Select</button>
+        </div>
+    </div>
+    <div class="button-item">
+        <div class="food-details">
+            <div class="food-name">Gobi Manchurian</div>
+            <img src="https://www.indianhealthyrecipes.com/wp-content/uploads/2022/02/gobi-manchurian-cauliflower-manchurian.jpg" alt="Gobi Manchurian" class="food-image">
+        </div>
+        <div class="food-info">
+            <span class="price">₹320</span>
+            <button class="select-button">Select</button>
+        </div>
+    </div>
+    <div class="button-item">
+        <div class="food-details">
+            <div class="food-name">Veg Biryani</div>
+            <img src="https://www.chefkunalkapur.com/wp-content/uploads/2023/11/DSC07512-1300x731.jpg?v=1699167800" alt="Veg Biryani" class="food-image">
+        </div>
+        <div class="food-info">
+            <span class="price">₹300</span>
+            <button class="select-button">Select</button>
+        </div>
+    </div>
+    <div class="button-item">
+        <div class="food-details">
+            <div class="food-name">Korma</div>
+            <img src="https://www.noracooks.com/wp-content/uploads/2024/08/vegetable-korma-1-2.jpg" alt="Korma" class="food-image">
+        </div>
+        <div class="food-info">
+            <span class="price">₹450</span>
+            <button class="select-button">Select</button>
+        </div>
+    </div>
+    
+    <div class="button-item">
+        <div class="food-details">
+            <div class="food-name">Mushroom Rice</div>
+            <img src="https://www.kitchenathoskins.com/wp-content/uploads/2020/10/mushroom-fried-rice-76.jpg" alt="Mushroom Rice" class="food-image">
+        </div>
+        <div class="food-info">
+            <span class="price">₹400</span>
+            <button class="select-button">Select</button>
+        </div>
+    </div>
+    <div class="button-item">
+        <div class="food-details">
+            <div class="food-name">Ghee Rice</div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQu0P3Ee9VGPTx6cKI1jMMWMF4jiK-EHr2Y7hXvTQ0ltTbuBFVdxiSkWKF2VP--k05OV0&usqp=CAU" alt="Ghee Rice" class="food-image">
+        </div>
+        <div class="food-info">
+            <span class="price">₹500</span>
+            <button class="select-button">Select</button>
+        </div>
+    </div>
+    <div class="button-item">
+        <div class="food-details">
+            <div class="food-name">Salad</div>
+            <img src="https://comidinhasdochef.com/wp-content/uploads/2022/01/Salada-Tropical-Tradicional00.jpg" alt="Salad" class="food-image">
+        </div>
+        <div class="food-info">
+            <span class="price">₹200</span>
+            <button class="select-button">Select</button>
+        </div>
+    </div>
+    <div class="button-item">
+        <div class="food-details">
+            <div class="food-name">Paneer Kadai</div>
+            <img src="https://www.indianhealthyrecipes.com/wp-content/uploads/2022/04/kadai-paneer-recipe.jpg" alt="Paneer Kadai" class="food-image">
+        </div>
+        <div class="food-info">
+            <span class="price">₹250</span>
+            <button class="select-button">Select</button>
+        </div>
+    </div>
+    <div class="button-item">
+        <div class="food-details">
+            <div class="food-name">Butter Roti</div>
+            <img src="https://anandschicken.com/wp-content/uploads/2021/06/Hotel-img-25.jpg" alt="Butter Roti" class="food-image">
+        </div>
+        <div class="food-info">
+            <span class="price">₹150</span>
+            <button class="select-button">Select</button>
+        </div>
+    </div>
+    <div class="button-item">
+        <div class="food-details">
+            <div class="food-name">Parotta</div>
+            <img src="https://www.spicingyourlife.com/wp-content/uploads/2014/04/Veechu-parotta.jpg" alt="Parrot" class="food-image">
+        </div>
+        <div class="food-info">
+            <span class="price">₹100</span>
+            <button class="select-button">Select</button>
+        </div>
+    </div>
+    <div class="button-item">
+        <div class="food-details">
+            <div class="food-name">Pani Puri</div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4um8ayDxdgBGiUWkS44AZ8RJulxA6zOMVFcps0m3QceYUsac3QCPyK8cMGoUOeqccBXs&usqp=CAU" alt="Pani Puri" class="food-image">
+        </div>
+        <div class="food-info">
+            <span class="price">₹80</span>
+            <button class="select-button">Select</button>
+        </div>
+    </div>
+    <div class="button-item">
+        <div class="food-details">
+            <div class="food-name">Noodles</div>
+            <img src="https://www.recipetineats.com/tachyon/2024/08/Hokkien-noodles-with-chicken_2.jpg" alt="Noodles" class="food-image">
+        </div>
+        <div class="food-info">
+            <span class="price">₹220</span>
+            <button class="select-button">Select</button>
+        </div>
+    </div>
+    <div class="button-item">
+        <div class="food-details">
+            <div class="food-name">Lemon Rice</div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzOnvuJnJ4sdL8Fo369rpUzwA9b3v8R-Hg4b7dydvu34DKQNXr3ReOeHw612fRNyDQtrc&usqp=CAU" alt="Lemon Rice" class="food-image">
+        </div>
+        <div class="food-info">
+            <span class="price">₹180</span>
+            <button class="select-button">Select</button>
+        </div>
+    </div>
+    <div class="button-item">
+        <div class="food-details">
+            <div class="food-name">Kaju Rice</div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4BqVTMUmKj94oG9YU_C_fHJgjpneJYh542BB8IgT65Z6zlVxNnIi-hMkcfg7E2y3zw68&usqp=CAU" alt="Kaju Rice" class="food-image">
+        </div>
+        <div class="food-info">
+            <span class="price">₹300</span>
+            <button class="select-button">Select</button>
+        </div>
+    </div>
+</div>
+<button class="done-button">Done</button>
+
+<script>
+    // Array to store selected items
+    const selectedItems = [];
+
+    // Function to toggle selection
+    function toggleSelection(event) {
+        const button = event.target;
+        const foodName = button.closest('.button-item').querySelector('.food-name').innerText;
+
+        button.classList.toggle('selected');
+
+        if (button.classList.contains('selected')) {
+            button.innerText = 'Selected';
+            selectedItems.push(foodName);
+        } else {
+            button.innerText = 'Select';
+            const index = selectedItems.indexOf(foodName);
+            if (index > -1) {
+                selectedItems.splice(index, 1);
+            }
+        }
+
+        console.log('Selected Items:', selectedItems);
+    }
+
+    // Attach event listeners to all select buttons
+    const selectButtons = document.querySelectorAll('.select-button');
+    selectButtons.forEach(button => button.addEventListener('click', toggleSelection));
+
+    // Handle Done button click
+    document.querySelector('.done-button').addEventListener('click', () => {
+    alert(`You have selected: ${selectedItems.join(', ')}`);
+});
+</script>
+<!-- Done Button -->
+
+
+
+
+</body>
+</html>
